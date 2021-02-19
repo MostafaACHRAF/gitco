@@ -1,0 +1,13 @@
+#!/bin/bash
+
+export confDir="."
+
+commit_msg="${3}"
+
+node types_menu
+
+commit_type=`cat ${confDir}/type.log`
+
+edited_commit_msg="${commit_msg%%:*} - ${commit_type}:${commit_msg##*:}"
+
+git commit -m "${edited_commit_msg}"
