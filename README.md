@@ -4,7 +4,7 @@
 
 # Demo
 
-<div style="text-align:center">![gitco-demo](./gitco-demo.png)</div>
+![gitco-demo](./gitco-demo.png)
 
 # Installation
 
