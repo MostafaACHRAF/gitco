@@ -1,5 +1,7 @@
 var inquirer = require('inquirer');
 var fs = require('fs');
+console.log(`cnf path: ${process.env.gitco_cnf_dir}`)
+
 
 inquirer.prompt([
     {
@@ -20,7 +22,6 @@ inquirer.prompt([
         ]
     }
 ]).then(answers => {
-    console.log(`cnf path: ${process.env.gitco_cnf_dir}`)
     fs.writeFile(`${process.env.gitco_cnf_dir}/type.log`, answers.type, function (err) {
         if (err) {
             console.log("Error! " + err);
