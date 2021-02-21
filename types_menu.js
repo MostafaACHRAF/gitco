@@ -20,7 +20,8 @@ inquirer.prompt([
         ]
     }
 ]).then(answers => {
-    fs.writeFile(`${process.env.confDir}/type.log`, answers.type, function (err) {
+    console.log(`cnf path: ${process.env.gitco_cnf_dir}`)
+    fs.writeFile(`${process.env.gitco_cnf_dir}/type.log`, answers.type, function (err) {
         if (err) {
             console.log("Error! " + err);
         }
