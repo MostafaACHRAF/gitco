@@ -40,10 +40,10 @@ Run the folowing command to:<br/>
 - Install related dependencies
 
 ```
-sudo git clone https://github.com/MostafaACHRAF/gitco.git {gitco_dir} \
+sudo git clone https://github.com/MostafaACHRAF/gitco.git ${gitco_dir} \
 && sudo chmod +x ${gitco_dir}/git-co \
 && sudo chmod +x ${gitco_dir}/types_menu.js \
-&& sudo chmod 777 ${gitco_dir}/gitco/cnf \
+&& sudo chmod 777 ${gitco_dir}/cnf \
 && cd ${gitco_dir} && sudo npm i
 ```
 
