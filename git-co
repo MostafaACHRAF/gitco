@@ -10,7 +10,4 @@ commit_type=`cat ${confDir}/type.log`
 
 edited_commit_msg="${commit_msg%%:*} - ${commit_type}:${commit_msg##*:}"
 
-# git commit -m "${edited_commit_msg}"
-
-echo "${edited_commit_msg}"
-echo "${commit_type}"
+git commit -m "${edited_commit_msg}"
