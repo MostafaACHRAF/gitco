@@ -20,16 +20,13 @@ pattern=${pattern//type/${commit_type}}
 shopt -s extglob;
 case "${gitco_pattern}" in
     \*!(\*)type!(\*)\*) # Matches => {*...type...*}
-        echo "third case"
         if [[ -z "${gitco_pattern_separator}" ]]; then echo "Error! empty separator."; exit 1; fi
         edited_commit_msg="${commit_msg%%${gitco_pattern_separator}*}${pattern}${commit_msg##*${gitco_pattern_separator}}"
     ;;
     \*!(\*)type!(\*)) # Matches => {*...type...}
-        echo "first case"
         edited_commit_msg="${commit_msg}${pattern}"
     ;;
     !(\*)type!(\*)\*) # Matches => {...type...*}
-        echo "second case"
         edited_commit_msg="${pattern}${commit_msg}"
     ;;
     *)
