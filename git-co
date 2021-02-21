@@ -2,11 +2,11 @@
 
 commit_msg="${2}"
 
-if [[ ! -d "${gitco_cnf_dir}" ]]; then echo "Error! Invalid cnf directory."; exit 1; fi
+if [[ ! -d "${gitco_dir}" ]]; then echo "Error! Invalid 'gitco' directory."; exit 1; fi
 
-node ${gitco_cnf_dir}/types_menu
+node ${gitco_dir}/types_menu
 
-commit_type=`cat ${gitco_cnf_dir}/type.log`
+commit_type=`cat ${gitco_dir}/cnf/type.log`
 
 if [[ -z "${commit_type}" ]]; then echo "Error! Invalid commit type."; exit 1; fi
 
