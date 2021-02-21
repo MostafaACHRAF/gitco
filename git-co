@@ -1,13 +1,40 @@
 #!/bin/bash
 
-export confDir="."
-
 commit_msg="${2}"
 
-node types_menu
+if [[ ! -d "${gitco_cnf_dir}" ]]; then echo "Error! Invalid cnf directory."; exit 1; fi
 
-commit_type=`cat ${confDir}/type.log`
+node ${gitco_cnf_dir}/types_menu
 
-edited_commit_msg="${commit_msg%%:*} - ${commit_type}:${commit_msg##*:}"
+commit_type=`cat ${gitco_cnf_dir}/type.log`
+
+if [[ -z "${commit_type}" ]]; then echo "Error! Invalid commit type."; exit 1; fi
+
+if [[ -z "${gitco_pattern}" ]]; then
+    gitco_pattern_separator="* - type: *"
+fi
+
+pattern=${gitco_pattern//\*/}
+pattern=${pattern//type/${commit_type}}
+
+case "${gitco_pattern}" in
+    \**type)
+        echo "first case"
+        edited_commit_msg="${commit_msg}${pattern}"
+    ;;
+    *type*\*)
+        echo "second case"
+        edited_commit_msg="${pattern}${commit_msg}"
+    ;;
+    \**type*\*)
+        echo "third case"
+        if [[ -z "${gitco_pattern_separator}" ]]; then echo "Error! empty separator."; exit 1; fi
+        edited_commit_msg="${commit_msg%%${gitco_pattern_separator}*}${pattern}${commit_msg##*${gitco_pattern_separator}}"
+    ;;
+    *)
+        echo "Error! Invalid pattern for commit message."
+        exit 1
+    ;;
+esac
 
 git commit -m "${edited_commit_msg}"
