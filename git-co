@@ -17,24 +17,26 @@ fi
 pattern=${gitco_pattern//\*/}
 pattern=${pattern//type/${commit_type}}
 
+shopt -s extglob;
 case "${gitco_pattern}" in
-    \**type)
-        echo "first case"
-        edited_commit_msg="${commit_msg}${pattern}"
-    ;;
-    *type*\*)
-        echo "second case"
-        edited_commit_msg="${pattern}${commit_msg}"
-    ;;
-    \**type*\*)
+    \*!(\*)type!(\*)\*) # Matches => {*...type...*}
         echo "third case"
         if [[ -z "${gitco_pattern_separator}" ]]; then echo "Error! empty separator."; exit 1; fi
         edited_commit_msg="${commit_msg%%${gitco_pattern_separator}*}${pattern}${commit_msg##*${gitco_pattern_separator}}"
     ;;
+    \*!(\*)type!(\*)) # Matches => {*...type...}
+        echo "first case"
+        edited_commit_msg="${commit_msg}${pattern}"
+    ;;
+    !(\*)type!(\*)\*) # Matches => {...type...*}
+        echo "second case"
+        edited_commit_msg="${pattern}${commit_msg}"
+    ;;
     *)
-        echo "Error! Invalid pattern for commit message."
+        echo "Error! Invalid pattern (${gitco_pattern}) for commit message."
         exit 1
     ;;
 esac
+shopt -u extglob;
 
 git commit -m "${edited_commit_msg}"
