@@ -19,7 +19,7 @@ Run the folowing command to:<br/>
 sudo git clone https://github.com/MostafaACHRAF/gitco.git {DIR}/gitco \
 && sudo chmod +x {DIR}/gitco/git-co \
 && sudo chmod +x {DIR}/gitco/types_menu.js \
-&& sudo chmod 777 {DIR}/gitco \
+&& sudo chmod 777 {DIR}/gitco/*.log \
 && cd {DIR}/gitco && sudo npm i
 ```
 
