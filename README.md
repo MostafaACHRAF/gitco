@@ -1,10 +1,10 @@
 # gitco
 
-> A git command to "automate commit messages 'type' according to a given pattern"
-
 Every commit has a type: {feature, bugFix, refactor,....}<br/>
 You don't have to remember those types. 'gitco' will propose them to you in an elegant way 😉<br/>
-You can even change where 'commit_type' will appead.<br/>
+And then inject the 'commit_type' where you want, according to a given pattern.<br/>
+
+> A git command to "automate commit messages 'type' according to a given pattern"
 
 ## Available types
 
@@ -20,8 +20,6 @@ You can even change where 'commit_type' will appead.<br/>
 - test
 
 > You can modify this list by editing: {DIR}/gitco/types_menu.js
-
-
 
 # Demo
 
