@@ -80,7 +80,7 @@ sudo git clone https://github.com/MostafaACHRAF/gitco.git ${gitco_dir} \
 1- Run 'gitco' without specifying the type:
 
 ```
-git co {COMMIT_MESSAGE}
+git co -m "{COMMIT_MESSAGE}"
 ```
 
 2- Choose the appropiate type from the list
