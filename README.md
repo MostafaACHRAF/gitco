@@ -87,7 +87,7 @@ git co {COMMIT_MESSAGE}
 3- The type will be injected where you specified it to be according to ${gitco_pattern}
 4- Enjoy 🎉
 
-## Configuration
+#Configuration
 
 You can customize where to insert 'commit_type'. There are three option:<br/>
 1- In the begining
