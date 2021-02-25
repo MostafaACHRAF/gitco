@@ -83,9 +83,9 @@ sudo git clone https://github.com/MostafaACHRAF/gitco.git ${gitco_dir} \
 git co -m "{COMMIT_MESSAGE}"
 ```
 
-2- Choose the appropiate type from the list
-3- The type will be injected where you specified it to be according to ${gitco_pattern}
-4- Enjoy 🎉
+2- Choose the appropiate type from the list.<br/>
+3- The type will be injected where you specified it to be, according to ${gitco_pattern}.<br/>
+4- Enjoy 🎉<br/>
 
 # Configuration
 
